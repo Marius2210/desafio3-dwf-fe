@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ProtectedRoute from './components/ProtectedRoute';
+import Home from './pages/Home';
 
 // Pantallas de marcador (aquí van a meter sus CRUDs reales después)
 const AlumnosPage = () => <h2>CRUD de Alumnos (Protegido)</h2>;
@@ -13,6 +14,12 @@ function App() {
         {/* Rutas Públicas */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        <Route path="/home" element={
+  <ProtectedRoute>
+    <Home />
+  </ProtectedRoute>
+} />
 
         {/* Rutas Privadas */}
         <Route path="/alumnos" element={

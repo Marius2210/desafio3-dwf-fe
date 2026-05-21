@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../services/api';
+import '../styles/Register.css';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -26,42 +27,43 @@ const Register = () => {
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
-      <h2>Crear Cuenta - UDB</h2>
-      <form onSubmit={handleRegister}>
-        <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Usuario:</label>
-          <input 
-            type="text" 
-            value={username} 
-            onChange={(e) => setUsername(e.target.value)} 
-            required 
-            style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
-          />
-        </div>
-        <div style={{ marginBottom: '15px' }}>
-          <label style={{ display: 'block', marginBottom: '5px' }}>Contraseña:</label>
-          <input 
-            type="password" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
-            required 
-            style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
-          />
-        </div>
-        
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        {success && <p style={{ color: 'green' }}>{success}</p>}
+  <div className="register-container">
+    <h2 className="register-title">Crear Cuenta - UDB</h2>
 
-        <button type="submit" style={{ width: '100%', padding: '10px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
-          Registrarse
-        </button>
-      </form>
-      <p style={{ marginTop: '15px', textAlign: 'center' }}>
-        ¿Ya tienes cuenta? <Link to="/login">Inicia sesión aquí</Link>
-      </p>
-    </div>
-  );
+    <form onSubmit={handleRegister}>
+      <div className="register-group">
+        <label>Usuario:</label>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+      </div>
+
+      <div className="register-group">
+        <label>Contraseña:</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </div>
+
+      {error && <p className="register-error">{error}</p>}
+      {success && <p className="register-success">{success}</p>}
+
+      <button type="submit" className="register-button">
+        Registrarse
+      </button>
+    </form>
+
+    <p className="register-footer">
+      ¿Ya tienes cuenta? <Link to="/login">Inicia sesión aquí</Link>
+    </p>
+  </div>
+);
 };
 
 export default Register;
