@@ -4,6 +4,7 @@ import Register from './pages/Register';
 import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
 import ProfesoresPage from './pages/ProfesoresPage';
+import MateriasPage from './pages/MateriasPage';
 
 // Pantallas de marcador (aquí van a meter sus CRUDs reales después)
 const AlumnosPage = () => <h2>CRUD de Alumnos (Protegido)</h2>;
@@ -33,6 +34,12 @@ function App() {
           <ProtectedRoute>
             <ProfesoresPage />
           </ProtectedRoute>
+        } />
+
+         <Route path="/materias" element={
+       <ProtectedRoute>
+       <MateriasPage />
+      </ProtectedRoute>
         } />
 
         {/* Redirección por defecto */}
