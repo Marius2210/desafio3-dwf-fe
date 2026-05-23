@@ -5,9 +5,8 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
 import ProfesoresPage from './pages/ProfesoresPage';
 import MateriasPage from './pages/MateriasPage';
+import AlumnosPage from './pages/AlumnosPage';
 
-// Pantallas de marcador (aquí van a meter sus CRUDs reales después)
-const AlumnosPage = () => <h2>CRUD de Alumnos (Protegido)</h2>;
 
 function App() {
   return (
@@ -41,6 +40,8 @@ function App() {
        <MateriasPage />
       </ProtectedRoute>
         } />
+
+
 
         {/* Redirección por defecto */}
         <Route path="*" element={<Navigate to="/login" replace />} />
