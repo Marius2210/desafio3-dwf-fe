@@ -43,7 +43,7 @@ const AlumnosPage = () => {
     const payload = {
       nombre,
       apellido,
-      materias: [{ id: parseInt(materiaId) }]  // ✅ Lista con un objeto
+      materias: [{ id: parseInt(materiaId) }]
     };
 
     try {
@@ -66,7 +66,6 @@ const AlumnosPage = () => {
     setEditandoId(alumno.id);
     setNombre(alumno.nombre);
     setApellido(alumno.apellido || '');
-    // ✅ Toma el id de la primera materia de la lista
     setMateriaId(alumno.materias && alumno.materias.length > 0 ? alumno.materias[0].id : '');
   };
 
@@ -175,7 +174,6 @@ const AlumnosPage = () => {
                 alumnos.map((al) => (
                   <tr key={al.id} style={styles.tr}>
                     <td style={styles.td}>{al.nombre} {al.apellido}</td>
-                    {/* ✅ Muestra el nombre de la primera materia de la lista */}
                     <td style={styles.td}>
                       {al.materias && al.materias.length > 0 ? al.materias[0].nombre : 'Sin materia inscrita'}
                     </td>
